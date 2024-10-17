@@ -1,0 +1,9 @@
+spring.application.name=Authentication
+spring.datasource.url=
+spring.datasource.username=
+spring.datasource.password=
+spring.sql.init.mode=
+
+api.security.token.secret=
+
+token.sonar=
