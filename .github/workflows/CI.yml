@@ -26,16 +26,8 @@ jobs:
       - name: Run tests and generate Jacoco coverage
         run: mvn test jacoco:report
 
-      - name: Run SonarQube analysis
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn sonar:sonar \
-          -Dsonar.projectKey=authentication \
-          -Dsonar.host.url=http://localhost:9000 \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-
-      - name: Upload artifact
+      - name: Upload Jacoco report
         uses: actions/upload-artifact@v3
         with:
-          name: artifact
-          path: target/*.jar
+          name: jacoco-report
+          path: target/site/jacoco/*
